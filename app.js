@@ -2,7 +2,10 @@
 
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+// ====================================================================
 // ==================Object Literal - Seattle===========================
+// =====================================================================
+
 var seattleLocation = {
   location : 'Seattle',
   minCustomer : 23,
@@ -26,18 +29,15 @@ var seattleLocation = {
 
 seattleLocation.calculateSales();  //Calling Seattle Function
 
+// =======================Final Sum Equation==================================
 
-// Daily Sum Equation for final printed line
 var dailySumSeattle = seattleLocation.totalDailyArry.reduce(function(a, b){
   return a + b;
 }, 0);
 
 var printSumSeattle = 'Total: ' + dailySumSeattle + ' cookies';
 
-// console.log(seattleLocation.cookieSales);
-// console.log('Total Daily Array:', seattleLocation.totalDailyArry);
-// console.log('Total Daily Sales:', seattleLocation.totalDailySales());
-// console.log('Daily Sum:', dailySumSeattle);
+// ========================Render in HTML============================
 
 var seattleUnorderedList = document.getElementById('seattle');
 
@@ -51,7 +51,9 @@ var newListItem = document.createElement('li');
 newListItem.textContent = printSumSeattle;
 seattleUnorderedList.appendChild(newListItem);
 
+// ====================================================================
 // ==================Object Literal - Tokyo===========================
+// ====================================================================
 
 var tokyoLocation = {
   location : 'Tokyo',
@@ -74,7 +76,17 @@ var tokyoLocation = {
   },
 };
 
-tokyoLocation.calculateSales();
+tokyoLocation.calculateSales();  // Call Tokyo Function
+
+// =======================Final Sum Equation==================================
+
+var dailySumTokyo = tokyoLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumTokyo = 'Total: ' + dailySumTokyo + ' cookies';
+
+// ========================Render in HTML============================
 
 var tokyoUnorderedList = document.getElementById('tokyo');
 
@@ -84,8 +96,13 @@ for (var i = 0; i<openHours.length; i++){
   tokyoUnorderedList.appendChild(newListItem);
 };
 
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumTokyo;
+tokyoUnorderedList.appendChild(newListItem);
 
+// ====================================================================
 // ==================Object Literal - Dubai===========================
+// ====================================================================
 
 var dubaiLocation = {
   location : 'Dubai',
@@ -118,7 +135,9 @@ for (var i = 0; i<openHours.length; i++){
   dubaiUnorderedList.appendChild(newListItem);
 };
 
+// ====================================================================
 // ==================Object Literal - Paris===========================
+// ====================================================================
 
 var parisLocation = {
   location : 'Paris',
@@ -150,8 +169,9 @@ for (var i = 0; i<openHours.length; i++){
   newListItem.textContent = parisLocation.cookieSales[i];
   parisUnorderedList.appendChild(newListItem);
 };
-
+// ====================================================================
 // ==================Object Literal - Lima===========================
+// ====================================================================
 
 var limaLocation = {
   location : 'Lima',
@@ -183,8 +203,9 @@ for (var i = 0; i<openHours.length; i++){
   newListItem.textContent = limaLocation.cookieSales[i];
   limaUnorderedList.appendChild(newListItem);
 };
-
+// ====================================================================
 // =========================Random Number Generator===================
+// ====================================================================
 
 function randomizer(min, max){
 
