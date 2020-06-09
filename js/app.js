@@ -62,23 +62,51 @@ function renderStore(){
   newListItem.textContent = this.calculateDailySum();
   unorderedList.appendChild(newListItem);
 }
+
+
+// ====================================================================
+// ==================Constructor Function==============================
+// ====================================================================
+
+function CookieShop(location, minCustomer, maxCustomer, avgCookie, unorderedListID){
+  this.location = location;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgCookie = avgCookie;
+  this.unorderedListID = unorderedListID;
+  this.cookieSales = [];
+}
+
+CookieShop.prototype.calculateCustomersHourly = calculateCustomersHourly;
+CookieShop.prototype.calculateHourlyCookies = calculateHourlyCookies;
+CookieShop.prototype.calculateDailySum = calculateDailySum;
+CookieShop.prototype.renderStore = renderStore;
+
+// ===========ReCreate Objects with Constructor Function=================
+
+var seattleLocation = new CookieShop('Seattle',23,65,6.3,'seattle');
+var tokyoLocation = new CookieShop('Tokyo',3,24,1.2,'tokyo');
+var dubaiLocation = new CookieShop('Dubai',11,38,3.7,'dubai');
+var parisLocation = new CookieShop('Paris',20,38,2.3,'paris');
+var limaLocation = new CookieShop('Lima',2,16,4.6,'lima');
+
 // ====================================================================
 // ==================Object Literal - Seattle===========================
 // =====================================================================
 
-var seattleLocation = {
-  location : 'Seattle',
-  minCustomer : 23,
-  maxCustomer : 65,
-  avgCookie : 6.3,
-  unorderedListID : 'seattle',
-  cookieSales : [],
+// var seattleLocation = {
+//   location : 'Seattle',
+//   minCustomer : 23,
+//   maxCustomer : 65,
+//   avgCookie : 6.3,
+//   unorderedListID : 'seattle',
+//   cookieSales : [],
 
-  calculateCustomersHourly : calculateCustomersHourly,
-  calculateHourlyCookies : calculateHourlyCookies,
-  calculateDailySum : calculateDailySum,
-  renderStore : renderStore
-};
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
 
 // Call Seattle Functions
 
@@ -87,24 +115,25 @@ seattleLocation.calculateCustomersHourly();
 seattleLocation.calculateDailySum();
 seattleLocation.renderStore();
 console.log(seattleLocation.cookieSales);
-//
+
 // // ====================================================================
 // // ==================Object Literal - Tokyo===========================
 // // ====================================================================
 
-var tokyoLocation = {
-  location : 'Tokyo',
-  minCustomer : 3,
-  maxCustomer : 24,
-  avgCookie : 1.2,
-  unorderedListID : 'tokyo',
-  cookieSales : [],
 
-  calculateCustomersHourly : calculateCustomersHourly,
-  calculateHourlyCookies : calculateHourlyCookies,
-  calculateDailySum : calculateDailySum,
-  renderStore : renderStore
-};
+// var tokyoLocation = {
+//   location : 'Tokyo',
+//   minCustomer : 3,
+//   maxCustomer : 24,
+//   avgCookie : 1.2,
+//   unorderedListID : 'tokyo',
+//   cookieSales : [],
+
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
 
 // Call Tokyo Function
 
@@ -118,19 +147,19 @@ console.log(tokyoLocation.cookieSales);
 // // ==================Object Literal - Dubai===========================
 // // ====================================================================
 
-var dubaiLocation = {
-  location : 'Dubai',
-  minCustomer : 11,
-  maxCustomer : 38,
-  avgCookie : 3.7,
-  unorderedListID : 'dubai',
-  cookieSales : [],
+// var dubaiLocation = {
+//   location : 'Dubai',
+//   minCustomer : 11,
+//   maxCustomer : 38,
+//   avgCookie : 3.7,
+//   unorderedListID : 'dubai',
+//   cookieSales : [],
 
-  calculateCustomersHourly : calculateCustomersHourly,
-  calculateHourlyCookies : calculateHourlyCookies,
-  calculateDailySum : calculateDailySum,
-  renderStore : renderStore
-};
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
 
 //Call Dubai Function
 
@@ -144,19 +173,19 @@ console.log(dubaiLocation.cookieSales);
 // // ==================Object Literal - Paris===========================
 // // ====================================================================
 
-var parisLocation = {
-  location : 'Paris',
-  minCustomer : 20,
-  maxCustomer : 38,
-  avgCookie : 2.3,
-  unorderedListID : 'paris',
-  cookieSales : [],
+// var parisLocation = {
+//   location : 'Paris',
+//   minCustomer : 20,
+//   maxCustomer : 38,
+//   avgCookie : 2.3,
+//   unorderedListID : 'paris',
+//   cookieSales : [],
 
-  calculateCustomersHourly : calculateCustomersHourly,
-  calculateHourlyCookies : calculateHourlyCookies,
-  calculateDailySum : calculateDailySum,
-  renderStore : renderStore
-};
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
 
 //Call Paris Function
 
@@ -169,20 +198,19 @@ console.log(parisLocation.cookieSales);
 // // ====================================================================
 // // ==================Object Literal - Lima===========================
 // // ====================================================================
+// var limaLocation = {
+//   location : 'Lima',
+//   minCustomer : 2,
+//   maxCustomer : 16,
+//   avgCookie : 4.6,
+//   unorderedListID : 'lima',
+//   cookieSales : [],
 
-var limaLocation = {
-  location : 'Lima',
-  minCustomer : 2,
-  maxCustomer : 16,
-  avgCookie : 4.6,
-  unorderedListID : 'lima',
-  cookieSales : [],
-
-  calculateCustomersHourly : calculateCustomersHourly,
-  calculateHourlyCookies : calculateHourlyCookies,
-  calculateDailySum : calculateDailySum,
-  renderStore : renderStore
-};
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
 
 // Call Lima Function
 
@@ -191,3 +219,4 @@ limaLocation.calculateCustomersHourly();
 limaLocation.calculateDailySum();
 limaLocation.renderStore();
 console.log(limaLocation.cookieSales);
+
