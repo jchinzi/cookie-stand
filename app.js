@@ -176,6 +176,14 @@ var parisLocation = {
 
 parisLocation.calculateSales(); //Call Paris Function
 
+// =======================Final Sum Equation==================================
+
+var dailySumParis = parisLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumParis = 'Total: ' + dailySumParis + ' cookies';
+
 // ========================Render in HTML============================
 
 var parisUnorderedList = document.getElementById('paris');
@@ -185,6 +193,11 @@ for (var i = 0; i<openHours.length; i++){
   newListItem.textContent = parisLocation.cookieSales[i];
   parisUnorderedList.appendChild(newListItem);
 };
+
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumParis;
+parisUnorderedList.appendChild(newListItem);
+
 // ====================================================================
 // ==================Object Literal - Lima===========================
 // ====================================================================
