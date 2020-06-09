@@ -30,7 +30,7 @@ function calculateCustomersHourly(){
 function calculateHourlyCookies(){
   for (var i = 0; i< openHours.length; i++){
     var cookiesSoldHourly = Math.round(this.calculateCustomersHourly() * this.avgCookie);
-    console.log('Each Hour Cookie Result', cookiesSoldHourly);
+    // console.log('Each Hour Cookie Result', cookiesSoldHourly);
     this.cookieSales.push(cookiesSoldHourly);
   }
 }
@@ -63,6 +63,35 @@ function renderStore(){
   unorderedList.appendChild(newListItem);
 }
 
+// Function to Render Cookie Sales to a Table====================================================
+
+function renderCookiesToTable(){
+  // 1. Target
+  var table = document.getElementById('cookieChart');
+  // 2. Make a New Element
+  var tableRow = document.createElement('tr');
+  // ================First Empty Cell================
+  // 2.5 Provide Content for <tr>  => <td>
+  //i. target is 'tr'
+  //ii. create a new element
+  var tableCell = document.createElement('td');
+  //ii.v provide content for <td> - leave this one BLANK (top left cell)
+  tableCell.textContent = '';
+  //iii. append cell to row
+  tableRow.appendChild(tableCell);
+  // ========End First Empty Cell / Begin Loop for Hours on Rest of Row=================
+  for (var i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = openHours[i];
+    tableRow.appendChild(tableCell);
+  }
+
+
+  // 3. Append Row to Table
+  table.appendChild(tableRow);
+}
+
+renderCookiesToTable();
 
 // ====================================================================
 // ==================Constructor Function==============================
@@ -219,4 +248,3 @@ limaLocation.calculateCustomersHourly();
 limaLocation.calculateDailySum();
 limaLocation.renderStore();
 console.log(limaLocation.cookieSales);
-
