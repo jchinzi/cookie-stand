@@ -30,6 +30,7 @@ var seattleLocation = {
 seattleLocation.calculateSales();  //Calling Seattle Function
 
 // =======================Final Sum Equation==================================
+// Equation adapted from https://www.tutorialrepublic.com/faq/how-to-find-the-sum-of-an-array-of-numbers-in-javascript.php
 
 var dailySumSeattle = seattleLocation.totalDailyArry.reduce(function(a, b){
   return a + b;
@@ -225,6 +226,14 @@ var limaLocation = {
 
 limaLocation.calculateSales();  // Call Lima Function
 
+// =======================Final Sum Equation==================================
+
+var dailySumLima = limaLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumLima = 'Total: ' + dailySumLima + ' cookies';
+
 // ========================Render in HTML============================
 
 var limaUnorderedList = document.getElementById('lima');
@@ -234,6 +243,11 @@ for (var i = 0; i<openHours.length; i++){
   newListItem.textContent = limaLocation.cookieSales[i];
   limaUnorderedList.appendChild(newListItem);
 };
+
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumLima;
+limaUnorderedList.appendChild(newListItem);
+
 // ====================================================================
 // =========================Random Number Generator===================
 // ====================================================================
