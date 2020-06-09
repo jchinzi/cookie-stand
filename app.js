@@ -153,7 +153,31 @@ var limaLocation = {
   location : 'Lima',
   minCustomer : 2,
   maxCustomer : 16,
-  avgCookie : 4.6
+  avgCookie : 4.6,
+  cookieSales : [],
+  totalDailyArry : [],
+  calculateSales : function(){
+    for(var i = 0; i < openHours.length; i++){
+
+      var possibleCustomers = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+
+      var cookiesPerHr = Math.round(possibleCustomers * this.avgCookie);
+
+      var hourlyOutput = (openHours[i] + ': ' + cookiesPerHr + ' cookies');
+      this.cookieSales.push(hourlyOutput);
+      this.totalDailyArry.push(cookiesPerHr);
+    };
+  },
+};
+
+limaLocation.calculateSales();
+
+var limaUnorderedList = document.getElementById('lima');
+
+for (var i = 0; i<openHours.length; i++){
+  var newListItem = document.createElement('li');
+  newListItem.textContent = limaLocation.cookieSales[i];
+  limaUnorderedList.appendChild(newListItem);
 };
 
 // =========================Random Number Generator===================
