@@ -125,7 +125,17 @@ var dubaiLocation = {
   },
 };
 
-dubaiLocation.calculateSales();
+dubaiLocation.calculateSales();  //Call Dubai Function
+
+// =======================Final Sum Equation==================================
+
+var dailySumDubai = dubaiLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumDubai = 'Total: ' + dailySumDubai + ' cookies';
+
+// ========================Render in HTML============================
 
 var dubaiUnorderedList = document.getElementById('dubai');
 
@@ -134,6 +144,10 @@ for (var i = 0; i<openHours.length; i++){
   newListItem.textContent = dubaiLocation.cookieSales[i];
   dubaiUnorderedList.appendChild(newListItem);
 };
+
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumDubai;
+dubaiUnorderedList.appendChild(newListItem);
 
 // ====================================================================
 // ==================Object Literal - Paris===========================
@@ -160,7 +174,9 @@ var parisLocation = {
   },
 };
 
-parisLocation.calculateSales();
+parisLocation.calculateSales(); //Call Paris Function
+
+// ========================Render in HTML============================
 
 var parisUnorderedList = document.getElementById('paris');
 
@@ -194,7 +210,9 @@ var limaLocation = {
   },
 };
 
-limaLocation.calculateSales();
+limaLocation.calculateSales();  // Call Lima Function
+
+// ========================Render in HTML============================
 
 var limaUnorderedList = document.getElementById('lima');
 
