@@ -118,28 +118,27 @@ console.log(tokyoLocation.cookieSales);
 // // ==================Object Literal - Dubai===========================
 // // ====================================================================
 
-// var dubaiLocation = {
-//   location : 'Dubai',
-//   minCustomer : 11,
-//   maxCustomer : 38,
-//   avgCookie : 3.7,
-//   cookieSales : [],
-//   totalDailyArry : [],
-//   calculateSales : function(){
-//     for(var i = 0; i < openHours.length; i++){
+var dubaiLocation = {
+  location : 'Dubai',
+  minCustomer : 11,
+  maxCustomer : 38,
+  avgCookie : 3.7,
+  unorderedListID : 'dubai',
+  cookieSales : [],
 
-//       var possibleCustomers = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+  calculateCustomersHourly : calculateCustomersHourly,
+  calculateHourlyCookies : calculateHourlyCookies,
+  calculateDailySum : calculateDailySum,
+  renderStore : renderStore
+};
 
-//       var cookiesPerHr = Math.round(possibleCustomers * this.avgCookie);
+//Call Dubai Function
 
-//       var hourlyOutput = (openHours[i] + ': ' + cookiesPerHr + ' cookies');
-//       this.cookieSales.push(hourlyOutput);
-//       this.totalDailyArry.push(cookiesPerHr);
-//     }
-//   },
-// };
-
-// dubaiLocation.calculateSales(); //Call Dubai Function
+dubaiLocation.calculateHourlyCookies();
+dubaiLocation.calculateCustomersHourly();
+dubaiLocation.calculateDailySum();
+dubaiLocation.renderStore();
+console.log(dubaiLocation.cookieSales);
 
 // // ====================================================================
 // // ==================Object Literal - Paris===========================
