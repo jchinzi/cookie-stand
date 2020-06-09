@@ -23,6 +23,14 @@ var seattleLocation = {
   }
 };
 
+seattleLocation.calculateSales();
+
+console.log(seattleLocation.cookieSales);
+var seattleUnorderedList = document.getElementById('seattle');
+var newListItem = document.createElement('li');
+newListItem.textContent = seattleLocation.cookieSales[0];
+seattleUnorderedList.appendChild(newListItem);
+
 
 // ==================Object Literal - Tokyo===========================
 
@@ -67,11 +75,12 @@ function randomizer(min, max){
   min = Math.ceil(min);
   max = Math.floor(max);
 
-  var possibleCustomers = Math.floor(Math.random() * (max - min + 1)) + min;
+  var possibleCustomers = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
 
-  var cookiesPerHr = possibleCustomers * avgCookie;
+      var cookiesPerHr = Math.round(possibleCustomers * this.avgCookie);
 
-  return cookiesPerHr;
+      var hourlyOutput = (openHours[i] + ': ' + cookiesPerHr);
+      this.cookieSales.push(hourlyOutput);
 }
 
 // ===================================================================
