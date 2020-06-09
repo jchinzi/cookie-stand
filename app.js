@@ -22,22 +22,22 @@ var seattleLocation = {
       this.totalDailyArry.push(cookiesPerHr);
     };
   },
-  // totalDailySales : function(){
-  //   var total = 0
-  //   dailyNum = parseInt(this.totalDailyArry[i]);
-  //   for(var i=0; i<openHours.length; i++){
-  //     total = total + dailyNum;
-  //   }
-  //   this.totalDailyArry.push(total);
-  // },
 };
 
 seattleLocation.calculateSales();  //Calling Seattle Function
-// seattleLocation.totalDailySales();
+
+
+// Daily Sum Equation for final printed line
+var dailySumSeattle = seattleLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumSeattle = 'Total: ' + dailySumSeattle + ' cookies';
 
 // console.log(seattleLocation.cookieSales);
-console.log('Total Daily Array:', seattleLocation.totalDailyArry);
+// console.log('Total Daily Array:', seattleLocation.totalDailyArry);
 // console.log('Total Daily Sales:', seattleLocation.totalDailySales());
+// console.log('Daily Sum:', dailySumSeattle);
 
 var seattleUnorderedList = document.getElementById('seattle');
 
@@ -46,6 +46,10 @@ for (var i = 0; i<openHours.length; i++){
   newListItem.textContent = seattleLocation.cookieSales[i];
   seattleUnorderedList.appendChild(newListItem);
 };
+
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumSeattle;
+seattleUnorderedList.appendChild(newListItem);
 
 // ==================Object Literal - Tokyo===========================
 
