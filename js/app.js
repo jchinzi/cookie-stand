@@ -170,25 +170,24 @@ console.log(parisLocation.cookieSales);
 // // ==================Object Literal - Lima===========================
 // // ====================================================================
 
-// var limaLocation = {
-//   location : 'Lima',
-//   minCustomer : 2,
-//   maxCustomer : 16,
-//   avgCookie : 4.6,
-//   cookieSales : [],
-//   totalDailyArry : [],
-//   calculateSales : function(){
-//     for(var i = 0; i < openHours.length; i++){
+var limaLocation = {
+  location : 'Lima',
+  minCustomer : 2,
+  maxCustomer : 16,
+  avgCookie : 4.6,
+  unorderedListID : 'lima',
+  cookieSales : [],
 
-//       var possibleCustomers = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+  calculateCustomersHourly : calculateCustomersHourly,
+  calculateHourlyCookies : calculateHourlyCookies,
+  calculateDailySum : calculateDailySum,
+  renderStore : renderStore
+};
 
-//       var cookiesPerHr = Math.round(possibleCustomers * this.avgCookie);
+// Call Lima Function
 
-//       var hourlyOutput = (openHours[i] + ': ' + cookiesPerHr + ' cookies');
-//       this.cookieSales.push(hourlyOutput);
-//       this.totalDailyArry.push(cookiesPerHr);
-//     }
-//   },
-// };
-
-// limaLocation.calculateSales(); // Call Lima Function
+limaLocation.calculateHourlyCookies();
+limaLocation.calculateCustomersHourly();
+limaLocation.calculateDailySum();
+limaLocation.renderStore();
+console.log(limaLocation.cookieSales);
