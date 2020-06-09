@@ -1,0 +1,11 @@
+# Contents copied from example given in https://codefellows.github.io/code-201-guide/curriculum/class-02/project_setup
+
+# Mac OS files
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Optional eslint cache
+.eslintcache
