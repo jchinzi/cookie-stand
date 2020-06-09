@@ -87,7 +87,31 @@ var dubaiLocation = {
   location : 'Dubai',
   minCustomer : 11,
   maxCustomer : 38,
-  avgCookie : 3.7
+  avgCookie : 3.7,
+  cookieSales : [],
+  totalDailyArry : [],
+  calculateSales : function(){
+    for(var i = 0; i < openHours.length; i++){
+
+      var possibleCustomers = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+
+      var cookiesPerHr = Math.round(possibleCustomers * this.avgCookie);
+
+      var hourlyOutput = (openHours[i] + ': ' + cookiesPerHr + ' cookies');
+      this.cookieSales.push(hourlyOutput);
+      this.totalDailyArry.push(cookiesPerHr);
+    };
+  },
+};
+
+dubaiLocation.calculateSales();
+
+var dubaiUnorderedList = document.getElementById('dubai');
+
+for (var i = 0; i<openHours.length; i++){
+  var newListItem = document.createElement('li');
+  newListItem.textContent = dubaiLocation.cookieSales[i];
+  dubaiUnorderedList.appendChild(newListItem);
 };
 
 // ==================Object Literal - Paris===========================
