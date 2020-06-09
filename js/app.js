@@ -144,28 +144,27 @@ console.log(dubaiLocation.cookieSales);
 // // ==================Object Literal - Paris===========================
 // // ====================================================================
 
-// var parisLocation = {
-//   location : 'Paris',
-//   minCustomer : 20,
-//   maxCustomer : 38,
-//   avgCookie : 2.3,
-//   cookieSales : [],
-//   totalDailyArry : [],
-//   calculateSales : function(){
-//     for(var i = 0; i < openHours.length; i++){
+var parisLocation = {
+  location : 'Paris',
+  minCustomer : 20,
+  maxCustomer : 38,
+  avgCookie : 2.3,
+  unorderedListID : 'paris',
+  cookieSales : [],
 
-//       var possibleCustomers = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+  calculateCustomersHourly : calculateCustomersHourly,
+  calculateHourlyCookies : calculateHourlyCookies,
+  calculateDailySum : calculateDailySum,
+  renderStore : renderStore
+};
 
-//       var cookiesPerHr = Math.round(possibleCustomers * this.avgCookie);
+//Call Paris Function
 
-//       var hourlyOutput = (openHours[i] + ': ' + cookiesPerHr + ' cookies');
-//       this.cookieSales.push(hourlyOutput);
-//       this.totalDailyArry.push(cookiesPerHr);
-//     }
-//   },
-// };
-
-// parisLocation.calculateSales(); //Call Paris Function
+parisLocation.calculateHourlyCookies();
+parisLocation.calculateCustomersHourly();
+parisLocation.calculateDailySum();
+parisLocation.renderStore();
+console.log(parisLocation.cookieSales);
 
 // // ====================================================================
 // // ==================Object Literal - Lima===========================
