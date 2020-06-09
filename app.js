@@ -2,7 +2,10 @@
 
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+// ====================================================================
 // ==================Object Literal - Seattle===========================
+// =====================================================================
+
 var seattleLocation = {
   location : 'Seattle',
   minCustomer : 23,
@@ -22,22 +25,20 @@ var seattleLocation = {
       this.totalDailyArry.push(cookiesPerHr);
     };
   },
-  // totalDailySales : function(){
-  //   var total = 0
-  //   dailyNum = parseInt(this.totalDailyArry[i]);
-  //   for(var i=0; i<openHours.length; i++){
-  //     total = total + dailyNum;
-  //   }
-  //   this.totalDailyArry.push(total);
-  // },
 };
 
 seattleLocation.calculateSales();  //Calling Seattle Function
-// seattleLocation.totalDailySales();
 
-// console.log(seattleLocation.cookieSales);
-console.log('Total Daily Array:', seattleLocation.totalDailyArry);
-// console.log('Total Daily Sales:', seattleLocation.totalDailySales());
+// =======================Final Sum Equation==================================
+// Equation adapted from https://www.tutorialrepublic.com/faq/how-to-find-the-sum-of-an-array-of-numbers-in-javascript.php
+
+var dailySumSeattle = seattleLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumSeattle = 'Total: ' + dailySumSeattle + ' cookies';
+
+// ========================Render in HTML============================
 
 var seattleUnorderedList = document.getElementById('seattle');
 
@@ -47,7 +48,13 @@ for (var i = 0; i<openHours.length; i++){
   seattleUnorderedList.appendChild(newListItem);
 };
 
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumSeattle;
+seattleUnorderedList.appendChild(newListItem);
+
+// ====================================================================
 // ==================Object Literal - Tokyo===========================
+// ====================================================================
 
 var tokyoLocation = {
   location : 'Tokyo',
@@ -70,7 +77,17 @@ var tokyoLocation = {
   },
 };
 
-tokyoLocation.calculateSales();
+tokyoLocation.calculateSales();  // Call Tokyo Function
+
+// =======================Final Sum Equation==================================
+
+var dailySumTokyo = tokyoLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumTokyo = 'Total: ' + dailySumTokyo + ' cookies';
+
+// ========================Render in HTML============================
 
 var tokyoUnorderedList = document.getElementById('tokyo');
 
@@ -80,8 +97,13 @@ for (var i = 0; i<openHours.length; i++){
   tokyoUnorderedList.appendChild(newListItem);
 };
 
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumTokyo;
+tokyoUnorderedList.appendChild(newListItem);
 
+// ====================================================================
 // ==================Object Literal - Dubai===========================
+// ====================================================================
 
 var dubaiLocation = {
   location : 'Dubai',
@@ -104,7 +126,17 @@ var dubaiLocation = {
   },
 };
 
-dubaiLocation.calculateSales();
+dubaiLocation.calculateSales();  //Call Dubai Function
+
+// =======================Final Sum Equation==================================
+
+var dailySumDubai = dubaiLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumDubai = 'Total: ' + dailySumDubai + ' cookies';
+
+// ========================Render in HTML============================
 
 var dubaiUnorderedList = document.getElementById('dubai');
 
@@ -114,7 +146,13 @@ for (var i = 0; i<openHours.length; i++){
   dubaiUnorderedList.appendChild(newListItem);
 };
 
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumDubai;
+dubaiUnorderedList.appendChild(newListItem);
+
+// ====================================================================
 // ==================Object Literal - Paris===========================
+// ====================================================================
 
 var parisLocation = {
   location : 'Paris',
@@ -137,7 +175,17 @@ var parisLocation = {
   },
 };
 
-parisLocation.calculateSales();
+parisLocation.calculateSales(); //Call Paris Function
+
+// =======================Final Sum Equation==================================
+
+var dailySumParis = parisLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumParis = 'Total: ' + dailySumParis + ' cookies';
+
+// ========================Render in HTML============================
 
 var parisUnorderedList = document.getElementById('paris');
 
@@ -147,7 +195,13 @@ for (var i = 0; i<openHours.length; i++){
   parisUnorderedList.appendChild(newListItem);
 };
 
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumParis;
+parisUnorderedList.appendChild(newListItem);
+
+// ====================================================================
 // ==================Object Literal - Lima===========================
+// ====================================================================
 
 var limaLocation = {
   location : 'Lima',
@@ -170,7 +224,17 @@ var limaLocation = {
   },
 };
 
-limaLocation.calculateSales();
+limaLocation.calculateSales();  // Call Lima Function
+
+// =======================Final Sum Equation==================================
+
+var dailySumLima = limaLocation.totalDailyArry.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+var printSumLima = 'Total: ' + dailySumLima + ' cookies';
+
+// ========================Render in HTML============================
 
 var limaUnorderedList = document.getElementById('lima');
 
@@ -180,7 +244,13 @@ for (var i = 0; i<openHours.length; i++){
   limaUnorderedList.appendChild(newListItem);
 };
 
+var newListItem = document.createElement('li');
+newListItem.textContent = printSumLima;
+limaUnorderedList.appendChild(newListItem);
+
+// ====================================================================
 // =========================Random Number Generator===================
+// ====================================================================
 
 function randomizer(min, max){
 
