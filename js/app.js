@@ -63,168 +63,6 @@ function renderStore(){
   unorderedList.appendChild(newListItem);
 }
 
-
-// ====================================================================
-// ==================Constructor Function==============================
-// ====================================================================
-
-function CookieShop(location, minCustomer, maxCustomer, avgCookie, unorderedListID){
-  this.location = location;
-  this.minCustomer = minCustomer;
-  this.maxCustomer = maxCustomer;
-  this.avgCookie = avgCookie;
-  this.unorderedListID = unorderedListID;
-  this.cookieSales = [];
-}
-
-CookieShop.prototype.calculateCustomersHourly = calculateCustomersHourly;
-CookieShop.prototype.calculateHourlyCookies = calculateHourlyCookies;
-CookieShop.prototype.calculateDailySum = calculateDailySum;
-CookieShop.prototype.renderStore = renderStore;
-
-// ===========ReCreate Objects with Constructor Function=================
-
-var seattleLocation = new CookieShop('Seattle',23,65,6.3,'seattle');
-var tokyoLocation = new CookieShop('Tokyo',3,24,1.2,'tokyo');
-var dubaiLocation = new CookieShop('Dubai',11,38,3.7,'dubai');
-var parisLocation = new CookieShop('Paris',20,38,2.3,'paris');
-var limaLocation = new CookieShop('Lima',2,16,4.6,'lima');
-
-console.log('Seattle Cookie Array', seattleLocation.cookieSales);
-
-
-// ====================================================================
-// ==================Object Literal - Seattle===========================
-// =====================================================================
-
-// var seattleLocation = {
-//   location : 'Seattle',
-//   minCustomer : 23,
-//   maxCustomer : 65,
-//   avgCookie : 6.3,
-//   unorderedListID : 'seattle',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
-
-// Call Seattle Functions
-
-seattleLocation.calculateHourlyCookies();
-seattleLocation.calculateCustomersHourly();
-seattleLocation.calculateDailySum();
-seattleLocation.renderStore();
-// console.log(seattleLocation.cookieSales);
-
-// // ====================================================================
-// // ==================Object Literal - Tokyo===========================
-// // ====================================================================
-
-
-// var tokyoLocation = {
-//   location : 'Tokyo',
-//   minCustomer : 3,
-//   maxCustomer : 24,
-//   avgCookie : 1.2,
-//   unorderedListID : 'tokyo',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
-
-// Call Tokyo Function
-
-tokyoLocation.calculateHourlyCookies();
-tokyoLocation.calculateCustomersHourly();
-tokyoLocation.calculateDailySum();
-tokyoLocation.renderStore();
-// console.log(tokyoLocation.cookieSales);
-
-// // ====================================================================
-// // ==================Object Literal - Dubai===========================
-// // ====================================================================
-
-// var dubaiLocation = {
-//   location : 'Dubai',
-//   minCustomer : 11,
-//   maxCustomer : 38,
-//   avgCookie : 3.7,
-//   unorderedListID : 'dubai',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
-
-//Call Dubai Function
-
-dubaiLocation.calculateHourlyCookies();
-dubaiLocation.calculateCustomersHourly();
-dubaiLocation.calculateDailySum();
-dubaiLocation.renderStore();
-// console.log(dubaiLocation.cookieSales);
-
-// // ====================================================================
-// // ==================Object Literal - Paris===========================
-// // ====================================================================
-
-// var parisLocation = {
-//   location : 'Paris',
-//   minCustomer : 20,
-//   maxCustomer : 38,
-//   avgCookie : 2.3,
-//   unorderedListID : 'paris',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
-
-//Call Paris Function
-
-parisLocation.calculateHourlyCookies();
-parisLocation.calculateCustomersHourly();
-parisLocation.calculateDailySum();
-parisLocation.renderStore();
-// console.log(parisLocation.cookieSales);
-
-// // ====================================================================
-// // ==================Object Literal - Lima===========================
-// // ====================================================================
-// var limaLocation = {
-//   location : 'Lima',
-//   minCustomer : 2,
-//   maxCustomer : 16,
-//   avgCookie : 4.6,
-//   unorderedListID : 'lima',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
-
-// Call Lima Function
-
-limaLocation.calculateHourlyCookies();
-limaLocation.calculateCustomersHourly();
-limaLocation.calculateDailySum();
-limaLocation.renderStore();
-// console.log(limaLocation.cookieSales);
-
-
-// =============================================================================================
 // ==================Function to Render Cookie Sales to a Table=================================
 
 function renderCookiesToTableRow1(){
@@ -319,7 +157,7 @@ function renderCookiesToTableDubai(){
   //=======================End Row 4 Cells / Append Row 4 to Table==========================
   table.appendChild(tableRowDubai);
 }
-//================================Begin Row 4====================================
+//================================Begin Row 5====================================
 
 function renderCookiesToTableParis(){
   var table = document.getElementById('cookieChart');
@@ -328,7 +166,7 @@ function renderCookiesToTableParis(){
   var tableCell = document.createElement('td');
   tableCell.textContent = parisLocation.location;
   tableRowParis.appendChild(tableCell);
-  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 4=================
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 5=================
   for (var i = 0; i<openHours.length; i++){
     tableCell = document.createElement('td');
     tableCell.textContent = parisLocation.cookieSales[i];
@@ -337,10 +175,213 @@ function renderCookiesToTableParis(){
   tableCell = document.createElement('td');
   tableCell.textContent = parisLocation.calculateDailySum();
   tableRowParis.appendChild(tableCell);
-  //=======================End Row 4 Cells / Append Row 4 to Table==========================
+  //=======================End Row 5 Cells / Append Row 5 to Table==========================
   table.appendChild(tableRowParis);
 }
+//================================Begin Row 6====================================
 
+function renderCookiesToTableLima(){
+  var table = document.getElementById('cookieChart');
+  var tableRowLima = document.createElement('tr');
+  // ==============================First Cell - City Name ================================
+  var tableCell = document.createElement('td');
+  tableCell.textContent = limaLocation.location;
+  tableRowLima.appendChild(tableCell);
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 6=================
+  for (var i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = limaLocation.cookieSales[i];
+    tableRowLima.appendChild(tableCell);
+  }
+  tableCell = document.createElement('td');
+  tableCell.textContent = limaLocation.calculateDailySum();
+  tableRowLima.appendChild(tableCell);
+  //=======================End Row 6 Cells / Append Row 6 to Table==========================
+  table.appendChild(tableRowLima);
+}
+//================================Begin Final Row====================================
+
+function renderCookiesToTableRowFinal(){
+  var table = document.getElementById('cookieChart');
+  var tableRowFinal = document.createElement('tr');
+  // ==============================First Cell - Totals ================================
+  var tableCell = document.createElement('td');
+  tableCell.textContent = 'Totals';
+  tableRowFinal.appendChild(tableCell);
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 4=================
+  for (var i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = 'TBD Total Equation';
+    tableRowFinal.appendChild(tableCell);
+  }
+  tableCell = document.createElement('td');
+  tableCell.textContent = '';
+  tableRowFinal.appendChild(tableCell);
+  //=======================End Row 4 Cells / Append Row 4 to Table==========================
+  table.appendChild(tableRowFinal);
+}
+
+// ====================================================================
+// ==================Constructor Function==============================
+// ====================================================================
+
+function CookieShop(location, minCustomer, maxCustomer, avgCookie, unorderedListID){
+  this.location = location;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgCookie = avgCookie;
+  this.unorderedListID = unorderedListID;
+  this.cookieSales = [];
+}
+
+CookieShop.prototype.calculateCustomersHourly = calculateCustomersHourly;
+CookieShop.prototype.calculateHourlyCookies = calculateHourlyCookies;
+CookieShop.prototype.calculateDailySum = calculateDailySum;
+CookieShop.prototype.renderStore = renderStore;
+
+// ===========ReCreate Objects with Constructor Function=================
+
+var seattleLocation = new CookieShop('Seattle',23,65,6.3,'seattle');
+var tokyoLocation = new CookieShop('Tokyo',3,24,1.2,'tokyo');
+var dubaiLocation = new CookieShop('Dubai',11,38,3.7,'dubai');
+var parisLocation = new CookieShop('Paris',20,38,2.3,'paris');
+var limaLocation = new CookieShop('Lima',2,16,4.6,'lima');
+
+console.log('Seattle Cookie Array', seattleLocation.cookieSales);
+
+
+// ====================================================================
+// ==================Object Literal - Seattle===========================
+// =====================================================================
+
+// var seattleLocation = {
+//   location : 'Seattle',
+//   minCustomer : 23,
+//   maxCustomer : 65,
+//   avgCookie : 6.3,
+//   unorderedListID : 'seattle',
+//   cookieSales : [],
+
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
+
+// Call Seattle Functions
+
+seattleLocation.calculateHourlyCookies();
+seattleLocation.calculateCustomersHourly();
+seattleLocation.calculateDailySum();
+// seattleLocation.renderStore();
+// console.log(seattleLocation.cookieSales);
+
+// // ====================================================================
+// // ==================Object Literal - Tokyo===========================
+// // ====================================================================
+
+
+// var tokyoLocation = {
+//   location : 'Tokyo',
+//   minCustomer : 3,
+//   maxCustomer : 24,
+//   avgCookie : 1.2,
+//   unorderedListID : 'tokyo',
+//   cookieSales : [],
+
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
+
+// Call Tokyo Function
+
+tokyoLocation.calculateHourlyCookies();
+tokyoLocation.calculateCustomersHourly();
+tokyoLocation.calculateDailySum();
+// tokyoLocation.renderStore();
+// console.log(tokyoLocation.cookieSales);
+
+// // ====================================================================
+// // ==================Object Literal - Dubai===========================
+// // ====================================================================
+
+// var dubaiLocation = {
+//   location : 'Dubai',
+//   minCustomer : 11,
+//   maxCustomer : 38,
+//   avgCookie : 3.7,
+//   unorderedListID : 'dubai',
+//   cookieSales : [],
+
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
+
+//Call Dubai Function
+
+dubaiLocation.calculateHourlyCookies();
+dubaiLocation.calculateCustomersHourly();
+dubaiLocation.calculateDailySum();
+// dubaiLocation.renderStore();
+// console.log(dubaiLocation.cookieSales);
+
+// // ====================================================================
+// // ==================Object Literal - Paris===========================
+// // ====================================================================
+
+// var parisLocation = {
+//   location : 'Paris',
+//   minCustomer : 20,
+//   maxCustomer : 38,
+//   avgCookie : 2.3,
+//   unorderedListID : 'paris',
+//   cookieSales : [],
+
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
+
+//Call Paris Function
+
+parisLocation.calculateHourlyCookies();
+parisLocation.calculateCustomersHourly();
+parisLocation.calculateDailySum();
+// parisLocation.renderStore();
+// console.log(parisLocation.cookieSales);
+
+// // ====================================================================
+// // ==================Object Literal - Lima===========================
+// // ====================================================================
+// var limaLocation = {
+//   location : 'Lima',
+//   minCustomer : 2,
+//   maxCustomer : 16,
+//   avgCookie : 4.6,
+//   unorderedListID : 'lima',
+//   cookieSales : [],
+
+//   calculateCustomersHourly : calculateCustomersHourly,
+//   calculateHourlyCookies : calculateHourlyCookies,
+//   calculateDailySum : calculateDailySum,
+//   renderStore : renderStore
+// };
+
+// Call Lima Function
+
+limaLocation.calculateHourlyCookies();
+limaLocation.calculateCustomersHourly();
+limaLocation.calculateDailySum();
+// limaLocation.renderStore();
+// console.log(limaLocation.cookieSales);
+
+
+// =============================================================================================
 //=======================Call Table Render Functions==========================
 
 renderCookiesToTableRow1();
@@ -348,3 +389,5 @@ renderCookiesToTableSeattle();
 renderCookiesToTableTokyo();
 renderCookiesToTableDubai();
 renderCookiesToTableParis();
+renderCookiesToTableLima();
+renderCookiesToTableRowFinal();
