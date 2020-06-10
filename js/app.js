@@ -1,11 +1,22 @@
 'strict use';
 
+// =================================Global Variables=======================================
+
+
 var openHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
-// ====================================================================
-// =========================Function List==============================
-// ====================================================================
+var cookieStoreArray = [];
 
+// =========================================================================================
+// ==============================Function List==============================================
+// =========================================================================================
+
+// Function to Add New Stores to cookieStoreArray===========================================
+
+function addNewStoreToArray(){
+  var newLocation = this.location;
+  cookieStoreArray.push(newLocation);
+}
 
 // Randomizer Function:  adapted from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
@@ -94,6 +105,15 @@ function renderCookiesToTableRow1(){
   // 3. Append Row to Table
   table.appendChild(tableRowHeader);
 }
+//================================Test - General Store Chart Function====================================
+
+// function renderStoreDataToTable(){
+//   for (var i = 0; i < cookieStoreArray.length; i++){
+
+//   }
+// }
+
+
 //================================Begin Row 2====================================
 
 function renderCookiesToTableSeattle(){
@@ -238,6 +258,7 @@ CookieShop.prototype.calculateCustomersHourly = calculateCustomersHourly;
 CookieShop.prototype.calculateHourlyCookies = calculateHourlyCookies;
 CookieShop.prototype.calculateDailySum = calculateDailySum;
 CookieShop.prototype.renderStore = renderStore;
+CookieShop.prototype.addNewStoreToArray = addNewStoreToArray;
 
 // ===========ReCreate Objects with Constructor Function=================
 
@@ -247,133 +268,50 @@ var dubaiLocation = new CookieShop('Dubai',11,38,3.7,'dubai');
 var parisLocation = new CookieShop('Paris',20,38,2.3,'paris');
 var limaLocation = new CookieShop('Lima',2,16,4.6,'lima');
 
-console.log('Seattle Cookie Array', seattleLocation.cookieSales);
-
-
-// ====================================================================
-// ==================Object Literal - Seattle===========================
-// =====================================================================
-
-// var seattleLocation = {
-//   location : 'Seattle',
-//   minCustomer : 23,
-//   maxCustomer : 65,
-//   avgCookie : 6.3,
-//   unorderedListID : 'seattle',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
 
 // Call Seattle Functions
 
+seattleLocation.addNewStoreToArray();
 seattleLocation.calculateHourlyCookies();
 seattleLocation.calculateCustomersHourly();
 seattleLocation.calculateDailySum();
 // seattleLocation.renderStore();
 // console.log(seattleLocation.cookieSales);
 
-// // ====================================================================
-// // ==================Object Literal - Tokyo===========================
-// // ====================================================================
-
-
-// var tokyoLocation = {
-//   location : 'Tokyo',
-//   minCustomer : 3,
-//   maxCustomer : 24,
-//   avgCookie : 1.2,
-//   unorderedListID : 'tokyo',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
 
 // Call Tokyo Function
 
+tokyoLocation.addNewStoreToArray();
 tokyoLocation.calculateHourlyCookies();
 tokyoLocation.calculateCustomersHourly();
 tokyoLocation.calculateDailySum();
 // tokyoLocation.renderStore();
 // console.log(tokyoLocation.cookieSales);
 
-// // ====================================================================
-// // ==================Object Literal - Dubai===========================
-// // ====================================================================
-
-// var dubaiLocation = {
-//   location : 'Dubai',
-//   minCustomer : 11,
-//   maxCustomer : 38,
-//   avgCookie : 3.7,
-//   unorderedListID : 'dubai',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
 
 //Call Dubai Function
 
+dubaiLocation.addNewStoreToArray();
 dubaiLocation.calculateHourlyCookies();
 dubaiLocation.calculateCustomersHourly();
 dubaiLocation.calculateDailySum();
 // dubaiLocation.renderStore();
 // console.log(dubaiLocation.cookieSales);
 
-// // ====================================================================
-// // ==================Object Literal - Paris===========================
-// // ====================================================================
-
-// var parisLocation = {
-//   location : 'Paris',
-//   minCustomer : 20,
-//   maxCustomer : 38,
-//   avgCookie : 2.3,
-//   unorderedListID : 'paris',
-//   cookieSales : [],
-
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
 
 //Call Paris Function
 
+parisLocation.addNewStoreToArray();
 parisLocation.calculateHourlyCookies();
 parisLocation.calculateCustomersHourly();
 parisLocation.calculateDailySum();
 // parisLocation.renderStore();
 // console.log(parisLocation.cookieSales);
 
-// // ====================================================================
-// // ==================Object Literal - Lima===========================
-// // ====================================================================
-// var limaLocation = {
-//   location : 'Lima',
-//   minCustomer : 2,
-//   maxCustomer : 16,
-//   avgCookie : 4.6,
-//   unorderedListID : 'lima',
-//   cookieSales : [],
 
-//   calculateCustomersHourly : calculateCustomersHourly,
-//   calculateHourlyCookies : calculateHourlyCookies,
-//   calculateDailySum : calculateDailySum,
-//   renderStore : renderStore
-// };
+// Call Lima Functions
 
-// Call Lima Function
-
+limaLocation.addNewStoreToArray();
 limaLocation.calculateHourlyCookies();
 limaLocation.calculateCustomersHourly();
 limaLocation.calculateDailySum();
@@ -382,7 +320,7 @@ limaLocation.calculateDailySum();
 
 
 // =============================================================================================
-//=======================Call Table Render Functions==========================
+//===================================Call Table Render Functions================================
 
 renderCookiesToTableRow1();
 renderCookiesToTableSeattle();
