@@ -274,7 +274,7 @@ function renderCookiesToTableSeattle(){
   tableCell = document.createElement('td');
   tableCell.textContent = seattleLocation.calculateDailySum();
   tableRowSeattle.appendChild(tableCell);
-  //=======================End Row 1 Cells / Append Row 1 to Table==========================
+  //=======================End Row 2 Cells / Append Row 2 to Table==========================
   table.appendChild(tableRowSeattle);
 }
 //================================Begin Row 3====================================
@@ -286,7 +286,7 @@ function renderCookiesToTableTokyo(){
   var tableCell = document.createElement('td');
   tableCell.textContent = tokyoLocation.location;
   tableRowTokyo.appendChild(tableCell);
-  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 2=================
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 3=================
   for (var i = 0; i<openHours.length; i++){
     tableCell = document.createElement('td');
     tableCell.textContent = tokyoLocation.cookieSales[i];
@@ -295,7 +295,7 @@ function renderCookiesToTableTokyo(){
   tableCell = document.createElement('td');
   tableCell.textContent = tokyoLocation.calculateDailySum();
   tableRowTokyo.appendChild(tableCell);
-  //=======================End Row 1 Cells / Append Row 1 to Table==========================
+  //=======================End Row 3 Cells / Append Row 3 to Table==========================
   table.appendChild(tableRowTokyo);
 }
 //================================Begin Row 4====================================
@@ -307,7 +307,7 @@ function renderCookiesToTableDubai(){
   var tableCell = document.createElement('td');
   tableCell.textContent = dubaiLocation.location;
   tableRowDubai.appendChild(tableCell);
-  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 2=================
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 4=================
   for (var i = 0; i<openHours.length; i++){
     tableCell = document.createElement('td');
     tableCell.textContent = dubaiLocation.cookieSales[i];
@@ -316,12 +316,35 @@ function renderCookiesToTableDubai(){
   tableCell = document.createElement('td');
   tableCell.textContent = dubaiLocation.calculateDailySum();
   tableRowDubai.appendChild(tableCell);
-  //=======================End Row 1 Cells / Append Row 1 to Table==========================
+  //=======================End Row 4 Cells / Append Row 4 to Table==========================
   table.appendChild(tableRowDubai);
 }
+//================================Begin Row 4====================================
+
+function renderCookiesToTableParis(){
+  var table = document.getElementById('cookieChart');
+  var tableRowParis = document.createElement('tr');
+  // ==============================First Cell - City Name ================================
+  var tableCell = document.createElement('td');
+  tableCell.textContent = parisLocation.location;
+  tableRowParis.appendChild(tableCell);
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 4=================
+  for (var i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = parisLocation.cookieSales[i];
+    tableRowParis.appendChild(tableCell);
+  }
+  tableCell = document.createElement('td');
+  tableCell.textContent = parisLocation.calculateDailySum();
+  tableRowParis.appendChild(tableCell);
+  //=======================End Row 4 Cells / Append Row 4 to Table==========================
+  table.appendChild(tableRowParis);
+}
+
+//=======================Call Table Render Functions==========================
 
 renderCookiesToTableRow1();
 renderCookiesToTableSeattle();
 renderCookiesToTableTokyo();
 renderCookiesToTableDubai();
-
+renderCookiesToTableParis();
