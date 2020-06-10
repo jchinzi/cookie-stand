@@ -227,7 +227,7 @@ limaLocation.renderStore();
 // =============================================================================================
 // ==================Function to Render Cookie Sales to a Table=================================
 
-function renderCookiesToTable(){
+function renderCookiesToTableRow1(){
   // 1. Target
   var table = document.getElementById('cookieChart');
   //================================Begin Row 1====================================
@@ -255,14 +255,18 @@ function renderCookiesToTable(){
   //=======================End Row 1 Cells / Append Row 1 to Table==========================
   // 3. Append Row to Table
   table.appendChild(tableRowHeader);
-  //================================Begin Row 2====================================
+}
+//================================Begin Row 2====================================
+
+function renderCookiesToTableSeattle(){
+  var table = document.getElementById('cookieChart');
   var tableRowSeattle = document.createElement('tr');
   // ==============================First Cell - City Name ================================
-  tableCell = document.createElement('td');
+  var tableCell = document.createElement('td');
   tableCell.textContent = seattleLocation.location;
   tableRowSeattle.appendChild(tableCell);
   // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 2=================
-  for (i = 0; i<openHours.length; i++){
+  for (var i = 0; i<openHours.length; i++){
     tableCell = document.createElement('td');
     tableCell.textContent = seattleLocation.cookieSales[i];
     tableRowSeattle.appendChild(tableCell);
@@ -272,8 +276,29 @@ function renderCookiesToTable(){
   tableRowSeattle.appendChild(tableCell);
   //=======================End Row 1 Cells / Append Row 1 to Table==========================
   table.appendChild(tableRowSeattle);
-  //================================Begin Row 3====================================
+}
+//================================Begin Row 3====================================
 
+function renderCookiesToTableTokyo(){
+  var table = document.getElementById('cookieChart');
+  var tableRowTokyo = document.createElement('tr');
+  // ==============================First Cell - City Name ================================
+  var tableCell = document.createElement('td');
+  tableCell.textContent = tokyoLocation.location;
+  tableRowTokyo.appendChild(tableCell);
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 2=================
+  for (var i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = tokyoLocation.cookieSales[i];
+    tableRowTokyo.appendChild(tableCell);
+  }
+  tableCell = document.createElement('td');
+  tableCell.textContent = tokyoLocation.calculateDailySum();
+  tableRowTokyo.appendChild(tableCell);
+  //=======================End Row 1 Cells / Append Row 1 to Table==========================
+  table.appendChild(tableRowTokyo);
 }
 
-renderCookiesToTable();
+renderCookiesToTableRow1();
+renderCookiesToTableSeattle();
+renderCookiesToTableTokyo();
