@@ -5,7 +5,11 @@
 
 var openHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
+// Will store the Location of each new store created
 var cookieStoreArray = [];
+
+// Will store the total cookies sold each hour
+var allSalesHourly = [];
 
 // =========================================================================================
 // ==============================Function List==============================================
@@ -141,7 +145,7 @@ function renderCookiesToTableRowFinal(){
   // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 4=================
   for (var i = 0; i<openHours.length; i++){
     tableCell = document.createElement('td');
-    tableCell.textContent = 'TBD Total Equation';
+    tableCell.textContent = allSalesHourly[i];
     tableRowFinal.appendChild(tableCell);
   }
   tableCell = document.createElement('td');
@@ -229,6 +233,21 @@ limaLocation.calculateDailySum();
 // limaLocation.renderStore();
 // console.log(limaLocation.cookieSales);
 
+// =============================================================================================
+//========Function to Sum Cookies by Hour and fill All Sales Hourly Array=======================
+
+function sumAllTimes(){
+  for (var i = 0; i < openHours.length; i++){
+    var salesByTime = seattleLocation.cookieSales[i]+
+    tokyoLocation.cookieSales[i]+
+    dubaiLocation.cookieSales[i]+
+    parisLocation.cookieSales[i]+
+    limaLocation.cookieSales[i];
+    allSalesHourly.push(salesByTime);
+  }
+}
+sumAllTimes();
+// console.log('Sales Array Test:', allSalesHourly);
 
 // =============================================================================================
 //===================================Call Table Render Functions================================
@@ -242,3 +261,4 @@ parisLocation.renderStoreDataToTable();
 limaLocation.renderStoreDataToTable();
 
 renderCookiesToTableRowFinal();
+
