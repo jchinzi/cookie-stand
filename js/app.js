@@ -21,7 +21,7 @@ function randomizer(min, max){
 
 function calculateCustomersHourly(){
   var customers = randomizer(this.minCustomer, this.maxCustomer);
-  console.log('Hourly Customer - Random', customers);
+  // console.log('Hourly Customer - Random', customers);
   return customers;
 }
 
@@ -63,35 +63,6 @@ function renderStore(){
   unorderedList.appendChild(newListItem);
 }
 
-// Function to Render Cookie Sales to a Table====================================================
-
-function renderCookiesToTable(){
-  // 1. Target
-  var table = document.getElementById('cookieChart');
-  // 2. Make a New Element
-  var tableRow = document.createElement('tr');
-  // ================First Empty Cell================
-  // 2.5 Provide Content for <tr>  => <td>
-  //i. target is 'tr'
-  //ii. create a new element
-  var tableCell = document.createElement('td');
-  //ii.v provide content for <td> - leave this one BLANK (top left cell)
-  tableCell.textContent = '';
-  //iii. append cell to row
-  tableRow.appendChild(tableCell);
-  // ========End First Empty Cell / Begin Loop for Hours on Rest of Row=================
-  for (var i = 0; i<openHours.length; i++){
-    tableCell = document.createElement('td');
-    tableCell.textContent = openHours[i];
-    tableRow.appendChild(tableCell);
-  }
-
-
-  // 3. Append Row to Table
-  table.appendChild(tableRow);
-}
-
-renderCookiesToTable();
 
 // ====================================================================
 // ==================Constructor Function==============================
@@ -119,6 +90,9 @@ var dubaiLocation = new CookieShop('Dubai',11,38,3.7,'dubai');
 var parisLocation = new CookieShop('Paris',20,38,2.3,'paris');
 var limaLocation = new CookieShop('Lima',2,16,4.6,'lima');
 
+console.log('Seattle Cookie Array', seattleLocation.cookieSales);
+
+
 // ====================================================================
 // ==================Object Literal - Seattle===========================
 // =====================================================================
@@ -143,7 +117,7 @@ seattleLocation.calculateHourlyCookies();
 seattleLocation.calculateCustomersHourly();
 seattleLocation.calculateDailySum();
 seattleLocation.renderStore();
-console.log(seattleLocation.cookieSales);
+// console.log(seattleLocation.cookieSales);
 
 // // ====================================================================
 // // ==================Object Literal - Tokyo===========================
@@ -170,7 +144,7 @@ tokyoLocation.calculateHourlyCookies();
 tokyoLocation.calculateCustomersHourly();
 tokyoLocation.calculateDailySum();
 tokyoLocation.renderStore();
-console.log(tokyoLocation.cookieSales);
+// console.log(tokyoLocation.cookieSales);
 
 // // ====================================================================
 // // ==================Object Literal - Dubai===========================
@@ -196,7 +170,7 @@ dubaiLocation.calculateHourlyCookies();
 dubaiLocation.calculateCustomersHourly();
 dubaiLocation.calculateDailySum();
 dubaiLocation.renderStore();
-console.log(dubaiLocation.cookieSales);
+// console.log(dubaiLocation.cookieSales);
 
 // // ====================================================================
 // // ==================Object Literal - Paris===========================
@@ -222,7 +196,7 @@ parisLocation.calculateHourlyCookies();
 parisLocation.calculateCustomersHourly();
 parisLocation.calculateDailySum();
 parisLocation.renderStore();
-console.log(parisLocation.cookieSales);
+// console.log(parisLocation.cookieSales);
 
 // // ====================================================================
 // // ==================Object Literal - Lima===========================
@@ -247,4 +221,59 @@ limaLocation.calculateHourlyCookies();
 limaLocation.calculateCustomersHourly();
 limaLocation.calculateDailySum();
 limaLocation.renderStore();
-console.log(limaLocation.cookieSales);
+// console.log(limaLocation.cookieSales);
+
+
+// =============================================================================================
+// ==================Function to Render Cookie Sales to a Table=================================
+
+function renderCookiesToTable(){
+  // 1. Target
+  var table = document.getElementById('cookieChart');
+  //================================Begin Row 1====================================
+  // 2. Make a New Element
+  var tableRowHeader = document.createElement('tr');
+  // ==============================First Empty Cell================================
+  // 2.5 Provide Content for <tr>  => <td>
+  //i. target is 'tr'
+  //ii. create a new element
+  var tableCell = document.createElement('td');
+  //ii.v provide content for <td> - leave this one BLANK (top left cell)
+  tableCell.textContent = '';
+  //iii. append cell to row
+  tableRowHeader.appendChild(tableCell);
+  // ========End First Empty Cell / Begin Loop for Hours on Rest of Row 1=================
+  for (var i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = openHours[i];
+    tableRowHeader.appendChild(tableCell);
+  }
+  // ========End Loop / Add Total Column===========================================
+  tableCell = document.createElement('td');
+  tableCell.textContent = 'Daily Location Total';
+  tableRowHeader.appendChild(tableCell);
+  //=======================End Row 1 Cells / Append Row 1 to Table==========================
+  // 3. Append Row to Table
+  table.appendChild(tableRowHeader);
+  //================================Begin Row 2====================================
+  var tableRowSeattle = document.createElement('tr');
+  // ==============================First Cell - City Name ================================
+  tableCell = document.createElement('td');
+  tableCell.textContent = seattleLocation.location;
+  tableRowSeattle.appendChild(tableCell);
+  // ========End City Cell / Begin Loop for Cookies Sold on Rest of Row 2=================
+  for (i = 0; i<openHours.length; i++){
+    tableCell = document.createElement('td');
+    tableCell.textContent = seattleLocation.cookieSales[i];
+    tableRowSeattle.appendChild(tableCell);
+  }
+  tableCell = document.createElement('td');
+  tableCell.textContent = seattleLocation.calculateDailySum();
+  tableRowSeattle.appendChild(tableCell);
+  //=======================End Row 1 Cells / Append Row 1 to Table==========================
+  table.appendChild(tableRowSeattle);
+  //================================Begin Row 3====================================
+
+}
+
+renderCookiesToTable();
