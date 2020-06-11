@@ -44,6 +44,16 @@ h1 {
   text-align: center;
 }
 
+#locations {
+  width: fit-content;
+}
+
+#images li {
+  float: right;
+  overflow: hidden;
+  list-style: none;
+}
+
 footer {
   background-color: salmon;
   position: fixed;
