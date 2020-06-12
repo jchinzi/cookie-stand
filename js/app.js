@@ -41,9 +41,9 @@ function addUserStoreToTable(event){
   deleteFinalRow('cookieChart');  //Delete Original Totals Row
 
   var location = event.target.location.value;
-  var minCustomer = event.target.minCustomer.value;
-  var maxCustomer = event.target.maxCustomer.value;
-  var avgCookie = event.target.avgCookie.value;
+  var minCustomer = parseInt(event.target.minCustomer.value);
+  var maxCustomer = parseInt(event.target.maxCustomer.value);
+  var avgCookie = parseFloat(event.target.avgCookie.value);
 
   console.log(location, minCustomer, maxCustomer, avgCookie);
   var newStore = new CookieShop(location, minCustomer, maxCustomer, avgCookie);
@@ -54,6 +54,8 @@ function addUserStoreToTable(event){
   newStore.calculateDailySum();
   newStore.renderStoreDataToTable();
   // newStore.pushSalesArray();
+
+  sumAllTimes();
 
   renderCookiesToTableRowFinal();  //ReRender Totals Row
 
@@ -347,6 +349,8 @@ limaLocation.calculateDailySum();
 // TODO: Newly added stores are not being added to the totals line
 
 function sumAllTimes(){
+
+  allSalesHourly = [];
   for (var hrIndex = 0; hrIndex < openHours.length; hrIndex++){
     var salesByTime = 0;
     for (var storeIndex = 0; storeIndex < allStores.length; storeIndex++){
