@@ -38,6 +38,11 @@ nav li  a {
   float: left;
 }
 
+body {
+  overflow: hidden;
+}
+
+
 h1 {
   color: salmon;
   margin: auto;
@@ -79,4 +84,8 @@ table {
 th, td {
   border: solid 1px black;
   padding: 5px;
+}
+
+input {
+  display: block;
 }
