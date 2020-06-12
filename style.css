@@ -38,6 +38,11 @@ nav li  a {
   float: left;
 }
 
+body {
+  overflow: hidden;
+}
+
+
 h1 {
   color: salmon;
   margin: auto;
