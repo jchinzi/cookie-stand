@@ -11,9 +11,6 @@ var cookieStoreArray = [];
 // Will store the total cookies sold each hour
 var allSalesHourly = [];
 
-// var allSalesArray = [];
-
-// var updatedTotalSalesArray = [];
 
 // =========================================================================================
 // ==============================Function List==============================================
@@ -48,12 +45,10 @@ function addUserStoreToTable(event){
   console.log(location, minCustomer, maxCustomer, avgCookie);
   var newStore = new CookieShop(location, minCustomer, maxCustomer, avgCookie);
 
-  // newStore.addNewStoreToArray();
   newStore.calculateHourlyCookies();
   newStore.calculateCustomersHourly();
   newStore.calculateDailySum();
   newStore.renderStoreDataToTable();
-  // newStore.pushSalesArray();
 
   sumAllTimes();
 
@@ -63,47 +58,10 @@ function addUserStoreToTable(event){
   // console.log(allSalesArray);
 }
 
-// Function to Add New Stores to cookieStoreArray===========================================
-
-// function addNewStoreToArray(){
-//   var newLocation = this.location;
-//   cookieStoreArray.push(newLocation);
-// }
-
-// Function to Add Hourly Sales Array to allSalesArray===========================================
-
-//  function pushSalesArray (){
-//  var storeSalesArray = this.cookieSales;
-//  allSalesArray.push(storeSalesArray);
-// }
-
-// Function to Fill updatedTotalSalesArray===========================================
-
-// function updateTotalSales(){
-
-//   var totalCookies = 0;
-//   for (var hrIndex = 0; hrIndex < openHours.length; hrIndex++){
-
-//     for (var storeIndex = 0; storeIndex < cookieStoreArray.length; cookieStoreArray++){
-
-//       totalCookies += allSalesArray[hrIndex][storeIndex];
-//       console.log('Total Cookies1', totalCookies);
-//     }
-//     console.log('Total Cookies2', totalCookies);
-//     // updatedTotalSalesArray.push(totalCookies);
-//   }
-//   console.log('Total Cookies3',totalCookies);
-//   // console.log('Updated Total Sales Array', updatedTotalSalesArray);
-//   console.log('All Sales Array', allSalesArray);
-// }
-// updateTotalSales();
 
 // Randomizer Function:  adapted from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 function randomizer(min, max){
-
-  // min = Math.ceil(min);
-  // max = Math.floor(max);
 
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -112,7 +70,6 @@ function randomizer(min, max){
 
 function calculateCustomersHourly(){
   var customers = randomizer(this.minCustomer, this.maxCustomer);
-  // console.log('Hourly Customer - Random', customers);
   return customers;
 }
 
@@ -134,7 +91,10 @@ function calculateDailySum(){
     return a + b;
   }, 0);
 
+  // locationDailySum.push(dailyLocationSum);
   var printSum = 'Total: ' + dailyLocationSum + ' cookies';
+  this.locationDailySum = dailyLocationSum;
+
   return printSum;
 }
 
@@ -225,36 +185,11 @@ function renderCookiesToTableRowFinal(){
     tableRowFinal.appendChild(tableCell);
   }
   tableCell = document.createElement('td');
-  tableCell.textContent = '';
+  tableCell.textContent = 'Grand Total: ' + sumAllStoresAllTimes() + ' cookies';
   tableRowFinal.appendChild(tableCell);
   //=======================End Row 4 Cells / Append Row 4 to Table==========================
   table.appendChild(tableRowFinal);
 }
-// =========================================================================================
-//================================Alternative Final Row with User Input=====================
-
-// function renderAllCookiesToFinalRow(){
-//   var table = document.getElementById('cookieChart');
-//   var tableRowFinal = document.createElement('tr');
-//   var tableCell = document.createElement('td');
-//   tableCell.textContent = 'Totals';
-//   tableRowFinal.appendChild(tableCell);
-
-//   var allCookiesSold =
-
-//   for (var i=0; i<openHours.length; i++){
-
-//     tableCell=document.createElement('td');
-//     tableCell.textContent = ;
-//     tableRowFinal.appendChild(tableCell);
-//   }
-//   tableCell = document.createElement('td');
-//   tableCell.textContent = '';
-//   tableRowFinal.appendChild(tableCell);
-//   table.appendChild(tableRowFinal);
-// }
-
-
 
 // ====================================================================
 // ==================Constructor Function==============================
@@ -262,23 +197,25 @@ function renderCookiesToTableRowFinal(){
 
 var allStores = [];
 
-function CookieShop(location, minCustomer, maxCustomer, avgCookie, unorderedListID){
+function CookieShop(location, minCustomer, maxCustomer, avgCookie, unorderedListID, locationDailySum){
   this.location = location;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.avgCookie = avgCookie;
   this.unorderedListID = unorderedListID;
   this.cookieSales = [];
+  this.dailySum = locationDailySum;
   allStores.push(this);
 }
 
 CookieShop.prototype.calculateCustomersHourly = calculateCustomersHourly;
 CookieShop.prototype.calculateHourlyCookies = calculateHourlyCookies;
 CookieShop.prototype.calculateDailySum = calculateDailySum;
+CookieShop.prototype.sumAllStoresAllTimes = sumAllStoresAllTimes;  //Test Case
 CookieShop.prototype.renderStore = renderStore;
 CookieShop.prototype.renderStoreDataToTable = renderStoreDataToTable;
-// CookieShop.prototype.addNewStoreToArray = addNewStoreToArray;
-// CookieShop.prototype.pushSalesArray = pushSalesArray;
+
+// console.log('Total Array after Constructor:', locationDailySum);
 
 // ===========ReCreate Objects with Constructor Function=================
 
@@ -291,62 +228,40 @@ var limaLocation = new CookieShop('Lima',2,16,4.6,'lima');
 
 // Call Seattle Functions
 
-// seattleLocation.addNewStoreToArray();
 seattleLocation.calculateHourlyCookies();
 seattleLocation.calculateCustomersHourly();
 seattleLocation.calculateDailySum();
-// seattleLocation.pushSalesArray();
-// seattleLocation.renderStore();
-// console.log(seattleLocation.cookieSales);
-
 
 // Call Tokyo Function
 
-// tokyoLocation.addNewStoreToArray();
 tokyoLocation.calculateHourlyCookies();
 tokyoLocation.calculateCustomersHourly();
 tokyoLocation.calculateDailySum();
-// tokyoLocation.pushSalesArray();
-// tokyoLocation.renderStore();
-// console.log(tokyoLocation.cookieSales);
 
 
 //Call Dubai Function
 
-// dubaiLocation.addNewStoreToArray();
 dubaiLocation.calculateHourlyCookies();
 dubaiLocation.calculateCustomersHourly();
 dubaiLocation.calculateDailySum();
-// dubaiLocation.pushSalesArray();
-// dubaiLocation.renderStore();
-// console.log(dubaiLocation.cookieSales);
 
 
 //Call Paris Function
 
-// parisLocation.addNewStoreToArray();
 parisLocation.calculateHourlyCookies();
 parisLocation.calculateCustomersHourly();
 parisLocation.calculateDailySum();
-// parisLocation.pushSalesArray();
-// parisLocation.renderStore();
-// console.log(parisLocation.cookieSales);
 
 
 // Call Lima Functions
 
-// limaLocation.addNewStoreToArray();
 limaLocation.calculateHourlyCookies();
 limaLocation.calculateCustomersHourly();
 limaLocation.calculateDailySum();
-// limaLocation.pushSalesArray();
-// limaLocation.renderStore();
-// console.log(limaLocation.cookieSales);
+
 
 // =============================================================================================
 //========Function to Sum Cookies by Hour and fill All Sales Hourly Array=======================
-
-// TODO: Newly added stores are not being added to the totals line
 
 function sumAllTimes(){
 
@@ -360,25 +275,22 @@ function sumAllTimes(){
   }
 }
 sumAllTimes();
-console.log('Hourly Sales Array Test:', allSalesHourly);
 
-// function sumAllTimesAllStores(){
-//   for (var hrIndex = 0; hrIndex < openHours.length; hrIndex++){
-//     for (var cityIndex = 0; cityIndex <cookieStoreArray.length; cityIndex++){
+// =============================================================================================
+//========Function to Sum all City Totals and Return Total Sales for the Day - All Cities=======
 
-      
-//     }
-//       var salesByTime = 
-//       allSalesArray[0][hrIndex]+
-//       allSalesArray[1][hrIndex]+
-//       allSalesArray[2][hrIndex]+
-//       allSalesArray[3][hrIndex]+
-//       allSalesArray[4][hrIndex];
-//       updatedTotalSalesArray.push(salesByTime);
-//     }
-// }
-// sumAllTimesAllStores();
-// console.log('Total Sales Array', updatedTotalSalesArray);
+function sumAllStoresAllTimes(){
+
+  // locationDailySumArray = [];
+  {
+    var totalSalesAllStores = 0;
+    for (var storeIndex = 0; storeIndex < allStores.length; storeIndex++){
+      totalSalesAllStores += allStores[storeIndex].locationDailySum; //add total sales for each location to constructor
+    }
+    return totalSalesAllStores;
+  }
+}
+sumAllStoresAllTimes();
 
 // =============================================================================================
 //===================================Call Table Render Functions================================
@@ -392,4 +304,3 @@ parisLocation.renderStoreDataToTable();
 limaLocation.renderStoreDataToTable();
 
 renderCookiesToTableRowFinal();
-
