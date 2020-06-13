@@ -25,6 +25,7 @@ nav li {
   margin: 10px;
   padding-left: 30px;
   list-style: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 nav li  a {
@@ -48,6 +49,10 @@ body {
   overflow: scroll;
 }
 
+#franchise {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 main ul {
   overflow: hidden;
 }
@@ -62,6 +67,7 @@ h1 {
 #locations {
   width: fit-content;
   float: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #images ul {
@@ -86,6 +92,7 @@ footer {
 footer p {
   text-align: right;
   color: #f5f5f5;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 footer img {
@@ -101,6 +108,10 @@ table {
   border: solid 1px, black;
   border-collapse: collapse;
   margin: 20px;
+}
+
+#cookieChart {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 th, td {
