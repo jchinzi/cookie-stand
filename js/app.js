@@ -304,3 +304,5 @@ parisLocation.renderStoreDataToTable();
 limaLocation.renderStoreDataToTable();
 
 renderCookiesToTableRowFinal();
+
+
