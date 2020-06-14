@@ -9,40 +9,41 @@
 </head>
 <body>
 
-<header>
-  <nav>
-    <ul id = 'navBar'>
-      <li>Open Daily from 6:00am to 8:00pm</li>
-      <li><img src="img/salmon.png"></li>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="sales.html">Sales</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <ul id = 'navBar'>
+        <li>Open Daily from 6:00am to 8:00pm</li>
+        <li><img src="img/salmon.png"></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="merch" style="list-style-image:url(img/shirt-icon.jpg)"><a href="#">Merchandise</a></li>
+      </ul>
+    </nav>
+  </header>
+
 
 <form id="franchise">
   <fieldset>
     <legend>Open a New Location</legend>
-
+    
     <label for="location">Store Location</label>
     <input type="text" name="location">
-
+    
     <label for="minCustomer">Minimum Expected Customers per Hour</label>
     <input type="number" name="minCustomer">
-
+    
     <label for="maxCustomer">Maximum Expected Customers per Hour</label>
     <input type="number" name="maxCustomer">
-
+    
     <label for="avgCookie">Average Cookies Sold per Customer</label>
     <input type="text" name="avgCookie">
-
+    
     <button>Add Your Location</button>
-
+    
   </fieldset>
 </form>
 
 <table id=cookieChart></table>
-
 
   <script src="js/app.js"></script>
   <footer>

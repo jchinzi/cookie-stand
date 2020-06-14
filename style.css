@@ -19,11 +19,14 @@ nav > ul {
   width: 100%;
 }
 
+nav .merch{
+  float: left;
+}
+
 nav li {
   float: right;
   width: auto;
-  margin: 10px;
-  padding-left: 30px;
+  margin: 10px 10px 10px 30px;
   list-style: none;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -31,6 +34,7 @@ nav li {
 nav li  a {
   text-decoration: none;
   color:aquamarine;
+  margin: 0;
 }
 
 nav li img {
@@ -45,13 +49,52 @@ nav li img {
   float: left;
 }
 
+#merch {
+  float: right;
+}
+
+#merch img {
+  border: 0;
+  max-height: 30px;
+}
+
 body {
   overflow: scroll;
+}
+
+#titleBlock {
+  overflow: hidden;
+  width: 100%;
+  /* background-color: aquamarine; */
+  background-image: url(img/fish.jpg);
+  height: 98px;
+}
+
+#titleBlock img {
+  height: 70px;
+}
+
+#cutter {
+  float: left;
+}
+
+#cookie {
+  float: left;
+  position: relative;
+  top: 112px;
+  left: 880px;
 }
 
 #franchise {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: gray;
+  background-color: rgb(200, 235, 215);
+  margin-top: 50px;
+  width: fit-content;
+  padding: 15px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 main ul {
@@ -65,7 +108,9 @@ h1 {
   text-align: center;
   font-family: 'Courgette', cursive;
   font-size: 60px;
-  padding-top: 20px;
+  padding: 20px;
+  width: fit-content;
+  background-color: white;
 }
 
 #locations {
@@ -73,18 +118,44 @@ h1 {
   float: left;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: gray;
+  margin-top: 80px;
 }
 
-#images ul {
-  float: right;
-  margin-right: 260px;
-  margin-top: 112px;
+#locations li:hover {
+  background-color: rgb(200, 280, 280);
+}
+
+#images {
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 80px;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #images li {
-  float: right;
   overflow: hidden;
   list-style: none;
+}
+
+#images img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#images p {
+  text-align: justify;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 15px;
+  margin-bottom: 50px;
+  max-width: 852px;
+  background-color: rgb(200, 235, 215);
+}
+
+.fancy {
+  font-family: 'Courgette', cursive;
 }
 
 footer {
@@ -93,6 +164,7 @@ footer {
   height: 48px;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 }
 
 footer p {
@@ -100,6 +172,7 @@ footer p {
   color: aquamarine;
   font-family: Georgia, 'Times New Roman', Times, serif;
   padding-bottom: 15px;
+  padding-right: 15px;
 }
 
 footer img {
@@ -124,12 +197,14 @@ table {
 
 table :first-child {
   color: gray;
-  background-color:  white;
+  background-color: rgb(200, 280, 280);
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #cookieChart {
   font-family: Arial, Helvetica, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 th, td {
